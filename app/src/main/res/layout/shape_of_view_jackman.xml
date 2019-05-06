@@ -1,101 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-        android:background="@color/white">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:id="@+id/activity_main">
 
     <com.github.florent37.shapeofview.shapes.DiagonalView
-        android:id="@+id/diagonalLayout"
-        app:shape_diagonal_height="40dp"
-        app:shape_diagonal_position="bottom"
-        android:layout_width="match_parent"
-        android:layout_height="266dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:paddingBottom="16dp">
+            android:layout_width="match_parent"
+            android:layout_height="266dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/diagonalLayout"
+            android:paddingBottom="16dp"
+            app:shape_diagonal_height="40dp"
+            app:shape_diagonal_position="bottom">
 
         <com.flaviofaria.kenburnsview.KenBurnsView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/diagonallayout_background" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/diagonallayout_background"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|left"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="70dp"
-            android:fontFamily="sans-serif-light"
-            android:text="Hugh Jackman"
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|left"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="70dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Hugh Jackman"
+                android:textColor="@android:color/white"
+                android:textSize="25sp"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="105dp"
-            android:orientation="horizontal">
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top|left"
-                android:fontFamily="sans-serif-condensed"
-                android:text="ACTOR"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="105dp"
+                android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|left"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="PRODUCER"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="ACTOR"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="PRODUCER"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
         </LinearLayout>
 
     </com.github.florent37.shapeofview.shapes.DiagonalView>
 
-    <com.github.florent37.shapeofview.shapes.CircleView
-        android:id="@+id/avatar"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="190dp"
-        >
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/diagonallayout_circle"
-            android:src="@drawable/diagonallayout_hughjackman" />
-    </com.github.florent37.shapeofview.shapes.CircleView>
-
-
-
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="320dp"
-        android:text="@string/diagonallayout_description"
-        android:textColor="#717171" />
-
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="320dp"
+            android:id="@+id/jackman_textview"
+            android:text="@string/diagonallayout_description"
+            android:textColor="#717171"/>
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:visibility="gone"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jackman_textview"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="32dp"
+            android:id="@+id/textview_hint"
+            android:text="Diagonal view's height in dp"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_hint"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="2dp"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:hint="height in dp"
+            android:id="@+id/input_height"
+            android:inputType="numberDecimal"
+            android:text="40"/>
 
 </RelativeLayout>

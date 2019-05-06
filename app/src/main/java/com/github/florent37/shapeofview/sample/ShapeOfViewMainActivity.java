@@ -1,11 +1,14 @@
 package com.github.florent37.shapeofview.sample;
 
-import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 
+import com.github.florent37.shapeofview.shapes.DiagonalView;
+
+import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ShapeOfViewMainActivity extends AppCompatActivity {
     @Override
@@ -13,50 +16,34 @@ public class ShapeOfViewMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shape_of_view_activity_main);
         ButterKnife.bind(this);
-    }
 
-    @OnClick(R.id.anim)
-    public void onAnimClicked() {
-        startActivity(new Intent(this, ShapeOfViewAnimationActivity.class));
-    }
+        EditText inputHeight = findViewById(R.id.input_height);
+        DiagonalView diagonalLayout = findViewById(R.id.diagonalLayout);
 
-    @OnClick(R.id.jackman)
-    public void onJackmanClicked() {
-        startActivity(new Intent(this, JackmanActivity.class));
-    }
+        inputHeight.addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(final CharSequence s, final int start, final int count, final int after) {
+                        //nothing to do
+                    }
 
-    @OnClick(R.id.star)
-    public void onStarClicked() {
-        startActivity(new Intent(this, ShapeOfViewStarActivity.class));
-    }
+                    @Override
+                    public void onTextChanged(final CharSequence s, final int start, final int before, final int count) {
+                        //nothing to do
+                    }
 
-    @OnClick(R.id.round)
-    public void onRoundClicked() {
-        startActivity(new Intent(this, ShapeOfViewRoundActivity.class));
-    }
-
-    @OnClick(R.id.star_wars)
-    public void onStarWarsClicked() {
-        startActivity(new Intent(this, StarWarsActivity.class));
-    }
-
-    @OnClick(R.id.star_wars_animated)
-    public void onStarWarsAnimatedClicked() {
-        startActivity(new Intent(this, ShapeOfViewStarAnimatedActivity.class));
-    }
-
-    @OnClick(R.id.shrine)
-    public void onShrineClicked() {
-        startActivity(new Intent(this, MaterialDesignShrineActivity.class));
-    }
-
-    @OnClick(R.id.shapes)
-    public void onShapesClicked() {
-        startActivity(new Intent(this, ShapeOfViewStarActivity.class));
-    }
-
-    @OnClick(R.id.dottedEdges)
-    public void onDottedEdgesClicked() {
-        startActivity(new Intent(this, DottedEdgesActivity.class));
+                    @Override
+                    public void afterTextChanged(final Editable editable) {
+                        if (editable.toString().isEmpty())
+                        {
+                            return;
+                        }
+                        int heightValue = Integer.valueOf(editable.toString());
+                        if (heightValue > 0) {
+                            diagonalLayout.setPerpendicularHeight(heightValue);
+                        }
+                    }
+                }
+        );
     }
 }

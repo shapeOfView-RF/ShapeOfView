@@ -16,23 +16,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ShapeOfViewAnimationActivity"/>
-        <activity android:name=".ShapeOfViewStarActivity"/>
-        <activity android:name=".MaterialDesignShrineActivity"/>
-        <activity android:name=".ErrorActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".JackmanActivity" />
-        <activity android:name=".StarWarsActivity" />
-        <activity android:name=".ShapeOfViewRoundActivity" />
-        <activity android:name=".DottedEdgesActivity" />
-        <activity android:name=".ShapeOfViewStarAnimatedActivity" />
-
     </application>
-
 </manifest>
