@@ -29,7 +29,7 @@ public class DiagonalView extends ShapeOfView {
 
     @DiagonalPosition
     private int diagonalPosition = POSITION_TOP;
-    private float diagonalAngle = 0f;
+    private float perpendicularHeight = 0;
 
     public DiagonalView(@NonNull Context context) {
         super(context);
@@ -49,7 +49,7 @@ public class DiagonalView extends ShapeOfView {
     private void init(Context context, AttributeSet attrs) {
         if (attrs != null) {
             final TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.DiagonalView);
-            diagonalAngle = attributes.getFloat(R.styleable.DiagonalView_shape_diagonal_angle, diagonalAngle);
+            perpendicularHeight =attributes.getDimensionPixelSize(R.styleable.DiagonalView_shape_diagonal_height, (int) perpendicularHeight);
             diagonalPosition = attributes.getInteger(R.styleable.DiagonalView_shape_diagonal_position, diagonalPosition);
             attributes.recycle();
         }
@@ -58,9 +58,7 @@ public class DiagonalView extends ShapeOfView {
             public Path createClipPath(int width, int height) {
                 final Path path = new Path();
 
-                final float diagonalAngleAbs = Math.abs(diagonalAngle);
                 final boolean isDirectionLeft = getDiagonalDirection() == DIRECTION_LEFT;
-                final float perpendicularHeight = (float) (width * Math.tan(Math.toRadians(diagonalAngleAbs)));
 
                 switch (diagonalPosition) {
                     case POSITION_BOTTOM:
@@ -145,15 +143,15 @@ public class DiagonalView extends ShapeOfView {
 
     @DiagonalDirection
     public int getDiagonalDirection() {
-        return diagonalAngle > 0 ? DIRECTION_LEFT : DIRECTION_RIGHT;
+        return perpendicularHeight > 0 ? DIRECTION_LEFT : DIRECTION_RIGHT;
     }
 
-    public float getDiagonalAngle() {
-        return diagonalAngle;
+    public float getPerpendicularHeight() {
+        return perpendicularHeight;
     }
 
-    public void setDiagonalAngle(float diagonalAngle) {
-        this.diagonalAngle = diagonalAngle;
+    public void setPerpendicularHeight(float perpendicularHeight) {
+        this.perpendicularHeight = perpendicularHeight;
         requiresShapeUpdate();
     }
 }

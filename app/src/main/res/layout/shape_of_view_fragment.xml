@@ -117,7 +117,7 @@
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
 
-            app:shape_diagonal_angle="10"
+            app:shape_diagonal_height="10dp"
             app:shape_diagonal_position="bottom">
 
             <ImageView
